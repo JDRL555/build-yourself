@@ -1,0 +1,37 @@
+.counters {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+  align-items: center;
+}
+
+.counters p {
+  width: 50%;
+}
+
+.counters p, .counters button {
+  font-size: 18px;
+}
+
+.counters button {
+  border: none;
+  height: 50%;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none; 
+  transition: .5s;  
+}
+
+.counterContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.counters .plus { background-color: rgb(68, 192, 68); }
+.counters .plus:hover { background-color: rgb(115, 209, 115); }
+
+.counters .subtract { background-color: rgb(202, 61, 61); }
+.counters .subtract:hover { background-color: rgb(214, 101, 101); }

@@ -1,0 +1,30 @@
+:root {
+  --main-bg: rgb(39, 39, 39);
+  --main-font: "Roboto";
+
+  --container-bg: rgb(226, 226, 226);
+}
+
+body {
+  font-family: var(--main-font);
+  background: var(--main-bg);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  text-align: center;
+  margin: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 60%;
+  background-color: var(--container-bg);
+  border: 5px solid rgb(20, 20, 20);
+  border-radius: 10px;
+}

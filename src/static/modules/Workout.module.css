@@ -1,0 +1,32 @@
+.count {
+  font-size: 20rem;
+}
+
+.count_3 { background-color: rgb(63, 201, 148); }
+.count_2 { background-color: rgb(91, 201, 63); }
+.count_1 { background-color: rgb(201, 187, 63); }
+.count_go { background-color: rgb(201, 63, 63); }
+
+.exercise_container {
+  background-color: rgb(39, 39, 39);
+  width: 30vw;
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.completed, .stop {
+  text-decoration: none;
+  padding: 10px 30px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  margin: 0 10px;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.completed:hover { background-color: rgb(35, 138, 35); color: white; }
+.stop:hover { background-color: rgb(173, 45, 45); color: white; }

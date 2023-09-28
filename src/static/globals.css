@@ -23,7 +23,7 @@ main {
   align-items: center;
   justify-content: center;
   width: 60%;
-  height: 60%;
+  height: auto;
   background-color: var(--container-bg);
   border: 5px solid rgb(20, 20, 20);
   border-radius: 10px;

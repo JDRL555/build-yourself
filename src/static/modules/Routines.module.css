@@ -1,0 +1,58 @@
+.routine_list {
+  text-align: start;
+  background-color: rgb(36, 36, 36);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40vw;
+  height: 30vh;
+  overflow-y: auto;
+}
+
+.routine_list h3 {
+  text-align: start;
+}
+
+.btn_routine, .btn_completed {
+  padding: 10px;
+  width: 40%;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn_routine {
+  background-color: rgb(90, 190, 90);
+}
+
+.btn_completed {
+  margin: 20px;
+  background-color: rgb(36, 36, 36);
+  color: white;
+}
+
+.btn_completed:disabled {
+  background-color: rgb(73, 73, 73);
+  pointer-events: none;
+}
+
+.btn_routine:hover {
+  background-color: rgb(29, 83, 29);
+  color: white;
+}
+
+.btn_completed:hover {
+  background-color: var(--container-bg);
+  color: rgb(31, 31, 31);
+}
+
+.exercises {
+  list-style-type: none;
+  padding: 5px 0;
+}
+
+.exercises li {
+  margin: 5px 0;
+}

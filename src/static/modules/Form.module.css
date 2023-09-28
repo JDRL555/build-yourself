@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input, .form select {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid black;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: .5s;
+}
+
+.form button {
+  padding: 10px;
+  border: none;
+  margin: 15px 0;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: rgb(48, 48, 48);
+}
+
+.form button:hover {
+  background-color: var(--container-bg);
+  color: black;
+}
+
+.form input, .form label {
+  margin: 10px 0;
+}
+
+.form input:focus {
+  box-shadow: 1px 5px 10px black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,20 +1,11 @@
-"use client"
-import { useState } from 'react'
-import styles from "@/static/Workout.module.css"
+import Workout            from '@/components/Workout'
+import { loadExercises }  from '@/utils/fetch.js'
 
-export default function WorkoutPage() {
-
-  const [count, setCount] = useState(3)
-  
-  setTimeout(()=>count >= 1 && setCount(count - 1), 1000)
-
+export default async function WorkoutPage() {
+  const exercises = await loadExercises()
   return (
     <main>
-      { count != 0 && <h1 className={styles.count}>{count}</h1> }
-      {
-        count == 0 && 
-        <h1>WORK!</h1>
-      }
+      <Workout exercises={exercises} />
     </main>
   )
 }

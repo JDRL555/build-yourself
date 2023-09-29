@@ -1,7 +1,8 @@
 "use client"
-import { useState } from 'react'
-import Swal         from 'sweetalert2'
-import styles       from '@/static/modules/Form.module.css'
+import { useState }   from 'react'
+import Swal           from 'sweetalert2'
+import { signUser }   from '@/utils/fetch.js'
+import styles         from '@/static/modules/Form.module.css'
 
 export default function SignIn() {
   const [userData, setUserData] = useState({})
@@ -16,9 +17,30 @@ export default function SignIn() {
   }
 
   const onSubmit = e => {
+    Swal.fire({
+      title: "Login, please wait...",
+      icon: "info",
+      showConfirmButton: false
+    })
     e.preventDefault()
-    console.log(userData)
-    Swal.fire("Login in...")
+    signUser(userData)
+    .then(res => {
+      Swal.close()
+      if(res.status != 200) {
+        Swal.fire({
+          title: "ERROR",
+          text: res.msg,
+          icon: "error",
+        })  
+      }else{
+        Swal.fire({
+          title: "SUCCESS",
+          text: res.msg,
+          icon: "success",
+        })
+        .then(() => window.location.href = "/")
+      }
+    })
   }
 
   return (
@@ -26,7 +48,7 @@ export default function SignIn() {
       <h1>Sign in with your account!</h1>
       <form className={styles.form} onSubmit={onSubmit}>
         {data.map(data => (
-          <div className={styles.container}>
+          <div key={data.text} className={styles.container}>
             <label htmlFor={data.text}>{data.title}</label>
             <input 
               type={data.type}      

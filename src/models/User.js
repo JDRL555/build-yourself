@@ -23,6 +23,15 @@ const validateSchema = z.object({
   routine: z.string().regex(MONGO_ID_REGEX)
 })
 
+const validateLoginSchema = z.object({
+  email: z.string().regex(EMAIL_REGEX),
+  password: z.string().min(6)
+})
+
+export function validateLogin(obj) {
+  return validateLoginSchema.safeParse(obj)
+}
+
 export function validateUser(obj) {
   return validateSchema.safeParse(obj)
 }

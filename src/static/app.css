@@ -1,13 +1,17 @@
 .btnContainer { 
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0;
 }
 
 .btn {
-  padding: 10px;
-  width: 40%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 40%;
+  height: 10vh; 
   background-color: var(--main-bg);
   color: white;
   border: none;

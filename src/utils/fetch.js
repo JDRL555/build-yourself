@@ -39,3 +39,16 @@ export async function createUser(data) {
   res     = await res.json()
   return res
 }
+
+export async function signUser(data) {
+  let res = await fetch(SERVER_API + USERS_ROUTE, { 
+    method: "POST", 
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": "application/json",
+      "login": true
+    } 
+  })
+  res = await res.json()
+  return res
+}

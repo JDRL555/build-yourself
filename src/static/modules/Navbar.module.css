@@ -1,0 +1,16 @@
+.nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav h2, .nav ul { margin: 20px 3rem; }
+
+.nav ul {
+  list-style-type: none;
+}

@@ -52,3 +52,9 @@ export async function signUser(data) {
   res = await res.json()
   return res
 }
+
+export async function getSession() {
+  const res   = await fetch(SERVER_API + USERS_ROUTE + "?session=true")
+  const data  = await res.json()
+  return data
+}

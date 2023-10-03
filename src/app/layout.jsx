@@ -1,4 +1,5 @@
 import GlobalProvider from '@/utils/redux/GlobalProvider'
+import Navbar         from '@/components/Navbar'
 import '@/static/globals.css'
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <GlobalProvider>
+          <Navbar />
           {children}
         </GlobalProvider>
       </body>

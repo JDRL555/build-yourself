@@ -1,5 +1,5 @@
 import { NextResponse }                       from 'next/server'
-import { headers }                            from 'next/headers'
+import { headers, cookies }                    from 'next/headers'
 import bcrypt                                 from 'bcrypt'
 import jwt                                    from 'jsonwebtoken'
 import cookie                                 from 'cookie'
@@ -10,8 +10,9 @@ import Routine                                from '@/models/Routine.js'
 
 export async function GET(request) {
   connectToDB(MONGO_URI)
-  let filter    = request.nextUrl.searchParams.get("filter")
-  let response  = { msg: "Here's the users", users: {} }
+  let filter        = request.nextUrl.searchParams.get("filter")
+  const session     = request.nextUrl.searchParams.get("session")
+  let response      = { msg: "Here's the users", users: {} }
   
   if(filter) {
     try {
@@ -32,6 +33,52 @@ export async function GET(request) {
 
     return NextResponse.json(response)
   }
+
+  if(session) {
+    const cookieStore = cookies()
+    const token       = cookieStore.get("session")
+
+    if(token) {
+      try {
+        const user = jwt.verify(token.value, SECRET_KEY)
+        return NextResponse.json(
+          {
+            error: false,
+            msg: "Here's the user", 
+            user, 
+            status: 200
+          }, 
+          {
+            status: 200
+          }
+        )
+      } catch (error) {
+        return NextResponse.json(
+          {
+            error: true,
+            msg: "Invalid token. Please make sure you're logged successfully", 
+            user: {}, 
+            status: 400
+          }, 
+          {
+            status: 400
+          }
+        )
+      }
+    } else return NextResponse.json(
+      {
+        error: true,
+        msg: "You're not logged. Please login", 
+        user: {}, 
+        status: 401
+      }, 
+      {
+        status: 401
+      }
+    )
+
+  }
+
   const users           = await User.find()
   const users_info      = []
 

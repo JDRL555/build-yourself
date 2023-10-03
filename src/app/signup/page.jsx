@@ -1,6 +1,5 @@
 "use client"
 import { useSelector }  from 'react-redux'
-import { setColumn }    from '@/utils/redux/features/userSlice.js'
 import Swal             from 'sweetalert2'
 import AccountForm      from '@/components/AccountForm'
 import PersonalForm     from '@/components/PersonalForm'
